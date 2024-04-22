@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwsikq2iqn5id"]
+
+[ext_resource type="Script" path="res://playerTesting.gd" id="2_0f30r"]
+[ext_resource type="Texture2D" uid="uid://ds25d6o80pmqg" path="res://icon.svg" id="2_ddaol"]
+[ext_resource type="Texture2D" uid="uid://dcrhqo8igqj5t" path="res://crosshair-1.png.png" id="3_761rs"]
+[ext_resource type="Texture2D" uid="uid://c80kufmx5hv7r" path="res://skybackground.png" id="3_jmiq0"]
+[ext_resource type="Texture2D" uid="uid://bm481llx648bq" path="res://buildings.png" id="4_0i7dt"]
+[ext_resource type="Script" path="res://crosshair.gd" id="4_6sax0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyucs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_taone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wvhd"]
+size = Vector2(35, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08hia"]
+size = Vector2(321, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpu4q"]
+size = Vector2(277, 78)
+
+[node name="world" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+disable_mode = 2
+script = ExtResource("2_0f30r")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.21875, 0.210938)
+texture = ExtResource("2_ddaol")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+show_behind_parent = true
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
+show_behind_parent = true
+light_mask = 512
+visibility_layer = 512
+texture_filter = 1
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(3.872, 3.51282)
+texture = ExtResource("3_jmiq0")
+
+[node name="Raycast" type="RayCast2D" parent="Player"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = -1.5708
+target_position = Vector2(2.08165e-12, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_fyucs")
+
+[node name="level3" type="StaticBody2D" parent="."]
+position = Vector2(-69, -54)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="level3"]
+position = Vector2(142.5, 57)
+scale = Vector2(0.273437, 0.140625)
+texture = ExtResource("2_ddaol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level3"]
+position = Vector2(142.5, 57)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="level4" type="StaticBody2D" parent="."]
+position = Vector2(-1, -255)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="level4"]
+position = Vector2(142.5, 57)
+scale = Vector2(0.273437, 0.140625)
+texture = ExtResource("2_ddaol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level4"]
+position = Vector2(142.5, 57)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="level2" type="StaticBody2D" parent="."]
+position = Vector2(-282, -109)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="level2"]
+position = Vector2(0, 57)
+scale = Vector2(2.5, 0.140625)
+texture = ExtResource("2_ddaol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level2"]
+position = Vector2(-0.5, 57)
+shape = SubResource("RectangleShape2D_08hia")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(180, -53.5)
+scale = Vector2(1.5, 1.459)
+texture = ExtResource("3_761rs")
+script = ExtResource("4_6sax0")
+
+[node name="Platform01" type="StaticBody2D" parent="."]
+position = Vector2(63, 47)
+scale = Vector2(3.5, 3.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform01"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_mpu4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform01"]
+texture_filter = 1
+scale = Vector2(8.65625, 4.90625)
+texture = ExtResource("4_0i7dt")
+
+[node name="Platform02" type="StaticBody2D" parent="."]
+position = Vector2(1032, 47)
+scale = Vector2(3.5, 3.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform02"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_mpu4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform02"]
+texture_filter = 1
+scale = Vector2(8.65625, 4.90625)
+texture = ExtResource("4_0i7dt")
