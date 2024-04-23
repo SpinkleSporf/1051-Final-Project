@@ -5,7 +5,7 @@ var hookSpeed = .08
 var gravity = 5
 var jumpForce = -200
 var maxSpeed = 50.0
-
+var stopTime = 1.0
 var hookPos = Vector2()
 var isHooked = false
 
@@ -37,14 +37,14 @@ func _physics_process(_delta):
 		velocity.x = 0
 	queue_redraw()
 	
-	# movement
+	isOnFloor = is_on_floor()
+	
+	# grounded movement
 	if Input.is_action_pressed("ui_right"): 
 		velocity.x = 1*speed
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -1*speed
-	
-	isOnFloor = is_on_floor()
-	
+		
 	#allows jumping
 	if Input.is_action_just_pressed("jump") and isOnFloor:
 		velocity.y = jumpForce
@@ -59,10 +59,11 @@ func getHookPos():
 			
 func move_towards_hook() -> void:
 	direction = (hookPos - global_position)
-	clamp(velocity.x, -50, 50) #sets max speed
-	clamp(velocity.y, -50, 50) #sets max speed
 	velocity.x += direction.x * hookSpeed
 	velocity.y += direction.y * hookSpeed
+	velocity.x = clamp(velocity.x, -300, 300) #sets max speed
+	velocity.y = clamp(velocity.y, -200, 200) #sets max speed
+	#print(velocity)
 	move_and_slide()
 	
 func _draw():
