@@ -1,24 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwsikq2iqn5id"]
+[gd_scene load_steps=13 format=3 uid="uid://dwsikq2iqn5id"]
 
 [ext_resource type="Script" path="res://playerTesting.gd" id="2_0f30r"]
 [ext_resource type="Texture2D" uid="uid://ds25d6o80pmqg" path="res://icon.svg" id="2_ddaol"]
+[ext_resource type="Texture2D" uid="uid://crf0r58evtqal" path="res://sprites/skybackground.png" id="3_273km"]
 [ext_resource type="Texture2D" uid="uid://dcrhqo8igqj5t" path="res://crosshair-1.png.png" id="3_761rs"]
-[ext_resource type="Texture2D" uid="uid://c80kufmx5hv7r" path="res://skybackground.png" id="3_jmiq0"]
-[ext_resource type="Texture2D" uid="uid://bm481llx648bq" path="res://buildings.png" id="4_0i7dt"]
+[ext_resource type="Texture2D" uid="uid://duuxsmia1ypmj" path="res://sprites/steelBeam.png" id="4_2gjcc"]
 [ext_resource type="Script" path="res://crosshair.gd" id="4_6sax0"]
+[ext_resource type="Texture2D" uid="uid://xue7nfcf4lin" path="res://sprites/buildings.png" id="7_1v01p"]
+[ext_resource type="Texture2D" uid="uid://e2rbssg72sqp" path="res://sprites/IMG_6684.JPG" id="8_np7mw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyucs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpu4q"]
+size = Vector2(277, 78)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_taone"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wvhd"]
-size = Vector2(35, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_08hia"]
-size = Vector2(321, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpu4q"]
-size = Vector2(277, 78)
+size = Vector2(25.25, 25)
 
 [node name="world" type="Node2D"]
 
@@ -27,7 +26,7 @@ disable_mode = 2
 script = ExtResource("2_0f30r")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="playerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(3.8147e-06, 0)
 scale = Vector2(0.21875, 0.210938)
 texture = ExtResource("2_ddaol")
@@ -36,16 +35,18 @@ texture = ExtResource("2_ddaol")
 show_behind_parent = true
 zoom = Vector2(2, 2)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
+[node name="backdrop" type="Sprite2D" parent="Player/Camera2D"]
 show_behind_parent = true
 light_mask = 512
 visibility_layer = 512
 texture_filter = 1
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(3.872, 3.51282)
-texture = ExtResource("3_jmiq0")
+texture = ExtResource("3_273km")
+metadata/_edit_lock_ = true
 
 [node name="Raycast" type="RayCast2D" parent="Player"]
+top_level = true
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = -1.5708
 target_position = Vector2(2.08165e-12, 300)
@@ -53,94 +54,1843 @@ target_position = Vector2(2.08165e-12, 300)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_fyucs")
 
-[node name="level3" type="StaticBody2D" parent="."]
-position = Vector2(-69, -54)
-physics_material_override = SubResource("PhysicsMaterial_taone")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="level3"]
-position = Vector2(142.5, 57)
-scale = Vector2(0.273437, 0.140625)
-texture = ExtResource("2_ddaol")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="level3"]
-position = Vector2(142.5, 57)
-shape = SubResource("RectangleShape2D_3wvhd")
-
-[node name="level4" type="StaticBody2D" parent="."]
-position = Vector2(-1, -255)
-physics_material_override = SubResource("PhysicsMaterial_taone")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="level4"]
-position = Vector2(142.5, 57)
-scale = Vector2(0.273437, 0.140625)
-texture = ExtResource("2_ddaol")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="level4"]
-position = Vector2(142.5, 57)
-shape = SubResource("RectangleShape2D_3wvhd")
-
-[node name="level2" type="StaticBody2D" parent="."]
-position = Vector2(-282, -109)
-rotation = 1.5708
-physics_material_override = SubResource("PhysicsMaterial_taone")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="level2"]
-position = Vector2(0, 57)
-scale = Vector2(2.5, 0.140625)
-texture = ExtResource("2_ddaol")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="level2"]
-position = Vector2(-0.5, 57)
-shape = SubResource("RectangleShape2D_08hia")
-
-[node name="Crosshair" type="Sprite2D" parent="."]
+[node name="Crosshair" type="Sprite2D" parent="Player"]
+top_level = true
 texture_filter = 1
 position = Vector2(180, -53.5)
 scale = Vector2(1.5, 1.459)
 texture = ExtResource("3_761rs")
 script = ExtResource("4_6sax0")
 
-[node name="Platform01" type="StaticBody2D" parent="."]
+[node name="levelObjects" type="Node" parent="."]
+
+[node name="Floors" type="Node" parent="levelObjects"]
+
+[node name="Floor1" type="StaticBody2D" parent="levelObjects/Floors"]
 position = Vector2(63, 47)
 scale = Vector2(3.5, 3.5)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform01"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Floors/Floor1"]
 position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_mpu4q")
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform01"]
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Floors/Floor1"]
 texture_filter = 1
 scale = Vector2(8.65625, 4.90625)
-texture = ExtResource("4_0i7dt")
+texture = ExtResource("7_1v01p")
 
-[node name="Platform02" type="StaticBody2D" parent="."]
+[node name="Floor2" type="StaticBody2D" parent="levelObjects/Floors"]
 position = Vector2(1032, 47)
 scale = Vector2(3.5, 3.5)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform02"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Floors/Floor2"]
 position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_mpu4q")
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform02"]
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Floors/Floor2"]
 texture_filter = 1
 scale = Vector2(8.65625, 4.90625)
-texture = ExtResource("4_0i7dt")
+texture = ExtResource("7_1v01p")
 
-[node name="level5" type="StaticBody2D" parent="."]
-position = Vector2(96, -105)
+[node name="Floor3" type="StaticBody2D" parent="levelObjects/Floors"]
+position = Vector2(2001, 47)
+scale = Vector2(3.5, 3.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Floors/Floor3"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_mpu4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Floors/Floor3"]
+texture_filter = 1
+scale = Vector2(8.65625, 4.90625)
+texture = ExtResource("7_1v01p")
+
+[node name="Floor4" type="StaticBody2D" parent="levelObjects/Floors"]
+position = Vector2(2970, 47)
+scale = Vector2(3.5, 3.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Floors/Floor4"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_mpu4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Floors/Floor4"]
+texture_filter = 1
+scale = Vector2(8.65625, 4.90625)
+texture = ExtResource("7_1v01p")
+
+[node name="Barrier" type="Node" parent="levelObjects"]
+
+[node name="Left Barrier" type="Node" parent="levelObjects/Barrier"]
+
+[node name="beam1" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -149)
+scale = Vector2(2, 2)
 physics_material_override = SubResource("PhysicsMaterial_taone")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="level5"]
-position = Vector2(142.5, 57)
-scale = Vector2(0.273437, 0.140625)
-texture = ExtResource("2_ddaol")
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam1"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="level5"]
-position = Vector2(142.5, 57)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam1"]
+position = Vector2(8, 10)
 shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam2" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -99)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam2"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam2"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam3" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -49)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam3"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam3"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam4" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, 1)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam4"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam4"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam5" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -199)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam5"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam5"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam6" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -249)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam6"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam6"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam7" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -299)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam7"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam7"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam8" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -349)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam8"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam8"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam9" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -299)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam9"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam9"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam10" type="StaticBody2D" parent="levelObjects/Barrier/Left Barrier"]
+position = Vector2(-413, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Left Barrier/beam10"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Left Barrier/beam10"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="Right Barrier" type="Node" parent="levelObjects/Barrier"]
+
+[node name="beam1" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -149)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam1"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam1"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam2" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -99)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam2"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam2"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam3" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -49)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam3"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam3"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam4" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, 1)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam4"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam4"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam5" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -199)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam5"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam5"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam6" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -249)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam6"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam6"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam7" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -299)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam7"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam7"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam8" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -349)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam8"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam8"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam9" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -299)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam9"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam9"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam10" type="StaticBody2D" parent="levelObjects/Barrier/Right Barrier"]
+position = Vector2(3415, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Barrier/Right Barrier/beam10"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Barrier/Right Barrier/beam10"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="Platforms" type="Node" parent="levelObjects"]
+
+[node name="Plat1" type="Node" parent="levelObjects/Platforms"]
+
+[node name="beam1" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(-34, -115)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam1"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam1"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam2" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(16, -115)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam2"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam2"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam3" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(66, -115)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam3"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam3"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam4" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(117, -115)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam4"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam4"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam5" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(-198, -111)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam5"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam5"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam6" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(-148, -111)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam6"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam6"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam7" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(-98, -111)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam7"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam7"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam8" type="StaticBody2D" parent="levelObjects/Platforms/Plat1"]
+position = Vector2(-47, -111)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat1/beam8"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat1/beam8"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="Plat2" type="Node" parent="levelObjects/Platforms"]
+
+[node name="beam1" type="StaticBody2D" parent="levelObjects/Platforms/Plat2"]
+position = Vector2(230, -186)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat2/beam1"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat2/beam1"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam2" type="StaticBody2D" parent="levelObjects/Platforms/Plat2"]
+position = Vector2(280, -186)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat2/beam2"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat2/beam2"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam3" type="StaticBody2D" parent="levelObjects/Platforms/Plat2"]
+position = Vector2(330, -186)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat2/beam3"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat2/beam3"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam4" type="StaticBody2D" parent="levelObjects/Platforms/Plat2"]
+position = Vector2(381, -186)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/Plat2/beam4"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Platforms/Plat2/beam4"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="Ceiling" type="Node" parent="levelObjects"]
+
+[node name="beam5" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-325, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam5"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam5"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam6" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-275, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam6"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam6"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam7" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-225, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam7"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam7"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam8" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-174, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam8"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam8"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam1" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-161, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam1"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam1"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam2" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-111, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam2"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam2"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam3" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-61, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam3"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam3"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam4" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(-10, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam4"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam4"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam9" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(78, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam9"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam9"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam10" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(128, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam10"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam10"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam11" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(178, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam11"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam11"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam12" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(229, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam12"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam12"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam13" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(242, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam13"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam13"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam14" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(292, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam14"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam14"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam15" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(342, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam15"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam15"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam16" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(393, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam16"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam16"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam17" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(481, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam17"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam17"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam18" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(531, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam18"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam18"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam19" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(581, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam19"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam19"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam20" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(632, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam20"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam20"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam21" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(645, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam21"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam21"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam22" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(695, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam22"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam22"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam23" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(745, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam23"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam23"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam24" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(796, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam24"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam24"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam25" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(884, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam25"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam25"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam26" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(934, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam26"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam26"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam27" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(984, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam27"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam27"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam28" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1035, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam28"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam28"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam29" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1048, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam29"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam29"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam30" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1098, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam30"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam30"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam31" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1148, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam31"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam31"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam32" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1199, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam32"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam32"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam33" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1287, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam33"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam33"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam34" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1337, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam34"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam34"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam35" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1387, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam35"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam35"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam36" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1438, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam36"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam36"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam37" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1451, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam37"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam37"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam38" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1501, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam38"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam38"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam39" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1551, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam39"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam39"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam40" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1602, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam40"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam40"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam41" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1690, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam41"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam41"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam42" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1740, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam42"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam42"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam43" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1790, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam43"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam43"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam44" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1841, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam44"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam44"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam45" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1854, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam45"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam45"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam46" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1904, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam46"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam46"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam47" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(1954, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam47"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam47"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam48" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2005, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam48"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam48"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam49" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2093, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam49"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam49"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam50" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2143, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam50"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam50"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam51" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2193, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam51"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam51"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam52" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2244, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam52"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam52"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam53" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2257, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam53"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam53"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam54" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2307, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam54"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam54"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam55" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2357, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam55"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam55"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam56" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2408, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam56"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam56"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam57" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2496, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam57"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam57"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam58" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2546, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam58"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam58"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam59" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2596, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam59"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam59"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam60" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2647, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam60"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam60"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam61" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2660, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam61"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam61"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam62" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2710, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam62"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam62"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam63" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2760, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam63"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam63"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam64" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2811, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam64"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam64"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam65" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2861, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam65"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam65"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam66" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(2912, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam66"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam66"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam67" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3000, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam67"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam67"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam68" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3050, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam68"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam68"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam69" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3100, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam69"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam69"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam70" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3151, -395)
+rotation = 1.5708
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam70"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam70"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam71" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3164, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam71"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam71"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam72" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3214, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam72"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam72"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam73" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3264, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam73"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam73"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam74" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3315, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam74"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam74"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="beam75" type="StaticBody2D" parent="levelObjects/Ceiling"]
+position = Vector2(3365, -399)
+scale = Vector2(2, 2)
+physics_material_override = SubResource("PhysicsMaterial_taone")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/Ceiling/beam75"]
+texture_filter = 1
+position = Vector2(8.3125, 10.375)
+scale = Vector2(0.792969, 0.789062)
+texture = ExtResource("4_2gjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelObjects/Ceiling/beam75"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_3wvhd")
+
+[node name="him" type="Node" parent="levelObjects"]
+
+[node name="Sprite2D" type="Sprite2D" parent="levelObjects/him"]
+position = Vector2(-755, -564)
+scale = Vector2(0.2625, 0.137879)
+texture = ExtResource("8_np7mw")

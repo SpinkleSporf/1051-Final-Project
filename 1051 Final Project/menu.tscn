@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4s7xpqpa4c55"]
+
+[ext_resource type="Texture2D" uid="uid://ds25d6o80pmqg" path="res://icon.svg" id="1_pfood"]
+[ext_resource type="Script" path="res://mainButton.gd" id="2_t5pi1"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.425
+anchor_top = 0.282
+anchor_right = 0.5
+anchor_bottom = 0.398
+offset_left = -6.00002
+offset_top = -25.56
+offset_right = -34.0
+offset_bottom = -29.84
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.086
+anchor_top = -0.062
+anchor_right = 1.086
+anchor_bottom = 1.062
+offset_left = -0.0239997
+offset_top = 0.00200033
+offset_right = 0.0239902
+offset_bottom = -0.00200438
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+icon = ExtResource("1_pfood")
+script = ExtResource("2_t5pi1")

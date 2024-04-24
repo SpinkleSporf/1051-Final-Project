@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c80kufmx5hv7r"
-path="res://.godot/imported/skybackground.png-3b689f3a6474f252eb64bd47bfe6b0f4.ctex"
+uid="uid://duuxsmia1ypmj"
+path="res://.godot/imported/steelBeam.png-b8a5fc57e111afbd28638b439c1adfb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skybackground.png"
-dest_files=["res://.godot/imported/skybackground.png-3b689f3a6474f252eb64bd47bfe6b0f4.ctex"]
+source_file="res://sprites/steelBeam.png"
+dest_files=["res://.godot/imported/steelBeam.png-b8a5fc57e111afbd28638b439c1adfb5.ctex"]
 
 [params]
 

@@ -10,6 +10,7 @@ var hookPos = Vector2()
 var isHooked = false
 
 var currentRopeLength
+var maxRopeLength = 500
 
 var direction = Vector2()
 
@@ -54,17 +55,23 @@ func _physics_process(_delta):
 	move_and_slide()
 			
 func getHookPos():
-	if $Raycast.is_colliding():
-		return $Raycast.get_collision_point()
+	if Input.is_action_just_pressed("left_click"):
+		if $Raycast.is_colliding():
+			print("hook is touching something")
+			return $Raycast.get_collision_point()
+		else:
+			print("hook is NOT touching something")
 			
 func move_towards_hook() -> void:
-	direction = (hookPos - global_position)
-	velocity.x += direction.x * hookSpeed
-	velocity.y += direction.y * hookSpeed
-	velocity.x = clamp(velocity.x, -300, 300) #sets max speed
-	velocity.y = clamp(velocity.y, -200, 200) #sets max speed
+	if currentRopeLength < maxRopeLength:
+		direction = (hookPos - global_position)
+		velocity.x += direction.x * hookSpeed
+		velocity.y += direction.y * hookSpeed
+		velocity.x = clamp(velocity.x, -350, 350) #sets max speed
+		velocity.y = clamp(velocity.y, -200, 200) #sets max speed
 	#print(velocity)
-	move_and_slide()
+	#print(currentRopeLength)
+		move_and_slide()
 	
 func _draw():
 	if Input.is_action_pressed("left_click") :
@@ -79,8 +86,9 @@ func hook():
 	if Input.is_action_just_pressed("left_click") :
 		isHooked = true
 		hookPos = get_global_mouse_position()
+		#$Raycast.get_collision_point() 
 		
-		if hookPos:
+		if Input.is_action_pressed("left_click"):
 			isHooked = true
 			currentRopeLength = global_position.distance_to(hookPos)
 	else:
