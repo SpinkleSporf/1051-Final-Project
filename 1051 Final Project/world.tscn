@@ -89,7 +89,7 @@ spread = 180.0
 gravity = Vector2(2.08165e-12, 2.08165e-12)
 initial_velocity_min = 35.0
 initial_velocity_max = 35.0
-scale_amount_min = 0.6
+scale_amount_min = 0.5
 scale_amount_max = 0.6
 
 [node name="levelObjects" type="Node" parent="."]
