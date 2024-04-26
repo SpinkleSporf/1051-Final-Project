@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dwsikq2iqn5id"]
+[gd_scene load_steps=25 format=3 uid="uid://dwsikq2iqn5id"]
 
 [ext_resource type="Script" path="res://playerTesting.gd" id="2_0f30r"]
 [ext_resource type="Texture2D" uid="uid://bferfeetsexb" path="res://sprites/MattBody.PNG" id="2_aprvc"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://crosshair.gd" id="4_6sax0"]
 [ext_resource type="Texture2D" uid="uid://dm2xrsikoqtku" path="res://sprites/deathParticle.png" id="6_0waxh"]
 [ext_resource type="Texture2D" uid="uid://xue7nfcf4lin" path="res://sprites/buildings.png" id="7_1v01p"]
-[ext_resource type="Texture2D" uid="uid://cvpm8aodwohhr" path="res://sprites/New Piskel-1.png (1).png" id="7_6lueb"]
 [ext_resource type="Script" path="res://spike.gd" id="7_8f27w"]
 [ext_resource type="Texture2D" uid="uid://cexlec84gr35i" path="res://sprites/MattArm.PNG" id="7_osy5g"]
 [ext_resource type="AudioStream" uid="uid://bkgvm8swx7ix1" path="res://sounds/ouch.mp3" id="8_ea7ca"]
@@ -356,7 +355,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike1"]
 position = Vector2(-125, 1)
@@ -372,7 +371,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike2"]
 position = Vector2(-125, 1)
@@ -388,7 +387,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike3"]
 position = Vector2(-125, 1)
@@ -404,7 +403,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike4"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat1/MovingBody/beam1/Spike4"]
 position = Vector2(-125, 1)
@@ -449,7 +448,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike1"]
 position = Vector2(-125, 1)
@@ -465,7 +464,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike2"]
 position = Vector2(-125, 1)
@@ -481,7 +480,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike3"]
 position = Vector2(-125, 1)
@@ -497,7 +496,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike4"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat2/MovingBody/beam1/Spike4"]
 position = Vector2(-125, 1)
@@ -543,7 +542,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike1"]
 position = Vector2(-125, 1)
@@ -559,7 +558,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike2"]
 position = Vector2(-125, 1)
@@ -575,7 +574,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike3"]
 position = Vector2(-125, 1)
@@ -591,7 +590,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike4"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Platforms/FloatPlat3/MovingBody/beam1/Spike4"]
 position = Vector2(-125, 1)
