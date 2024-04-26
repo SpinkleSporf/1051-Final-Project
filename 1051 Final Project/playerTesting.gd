@@ -116,4 +116,4 @@ func victory():
 	get_tree().change_scene_to_file.bind("res://victory.tscn").call_deferred()
 	
 func _process(_delta):
-	pass
+	GlobalAudioStreamPlayer._play_level_music()
