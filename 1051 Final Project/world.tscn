@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwsikq2iqn5id"]
+[gd_scene load_steps=26 format=3 uid="uid://dwsikq2iqn5id"]
 
 [ext_resource type="Script" path="res://playerTesting.gd" id="2_0f30r"]
 [ext_resource type="Texture2D" uid="uid://bferfeetsexb" path="res://sprites/MattBody.PNG" id="2_aprvc"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://flag.gd" id="12_1sfp0"]
 [ext_resource type="Script" path="res://floatPlatX2.gd" id="13_os1o4"]
 [ext_resource type="Texture2D" uid="uid://3pi2ma05m7jg" path="res://sprites/Flag.png" id="14_afwgm"]
+[ext_resource type="Texture2D" uid="uid://b5fhxust1ux4" path="res://sprites/spike.png" id="15_ot7w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyucs"]
 size = Vector2(25, 40)
@@ -1734,7 +1735,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group1/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group1/Spike1"]
 position = Vector2(-125, 1)
@@ -1748,7 +1749,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group1/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group1/Spike2"]
 position = Vector2(-125, 1)
@@ -1762,7 +1763,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group1/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group1/Spike3"]
 position = Vector2(-125, 1)
@@ -1779,7 +1780,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group2/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group2/Spike1"]
 position = Vector2(-125, 1)
@@ -1794,7 +1795,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group2/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group2/Spike2"]
 position = Vector2(-125, 1)
@@ -1809,7 +1810,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group2/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group2/Spike3"]
 position = Vector2(-125, 1)
@@ -1826,7 +1827,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group3/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group3/Spike1"]
 position = Vector2(-125, 1)
@@ -1841,7 +1842,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group3/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group3/Spike2"]
 position = Vector2(-125, 1)
@@ -1856,7 +1857,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group3/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group3/Spike3"]
 position = Vector2(-125, 1)
@@ -1872,7 +1873,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group4/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group4/Spike1"]
 position = Vector2(-125, 1)
@@ -1886,7 +1887,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group4/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group4/Spike2"]
 position = Vector2(-125, 1)
@@ -1900,7 +1901,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group4/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group4/Spike3"]
 position = Vector2(-125, 1)
@@ -1916,7 +1917,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group5/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group5/Spike1"]
 position = Vector2(-125, 1)
@@ -1930,7 +1931,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group5/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group5/Spike2"]
 position = Vector2(-125, 1)
@@ -1944,7 +1945,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group5/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group5/Spike3"]
 position = Vector2(-125, 1)
@@ -1961,7 +1962,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike1"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike1"]
 position = Vector2(-125, 1)
@@ -1976,7 +1977,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike2"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike2"]
 position = Vector2(-125, 1)
@@ -1991,7 +1992,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike3"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike3"]
 position = Vector2(-125, 1)
@@ -2006,7 +2007,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike4"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike4"]
 position = Vector2(-125, 1)
@@ -2021,7 +2022,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike5"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike5"]
 position = Vector2(-125, 1)
@@ -2036,7 +2037,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group6/Spike6"]
 position = Vector2(-206, 30)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group6/Spike6"]
 position = Vector2(-125, 1)
@@ -2054,7 +2055,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike5"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike5"]
 position = Vector2(80.8511, -28.7234)
@@ -2070,7 +2071,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike6"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike6"]
 position = Vector2(80.8511, -28.7234)
@@ -2086,7 +2087,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike7"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike7"]
 position = Vector2(80.8511, -28.7234)
@@ -2102,7 +2103,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike8"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike8"]
 position = Vector2(80.8511, -28.7234)
@@ -2118,7 +2119,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike9"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike9"]
 position = Vector2(80.8511, -28.7234)
@@ -2134,7 +2135,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike10"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike10"]
 position = Vector2(80.8511, -28.7234)
@@ -2150,7 +2151,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group7/Spike11"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group7/Spike11"]
 position = Vector2(80.8511, -28.7234)
@@ -2168,7 +2169,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike5"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike5"]
 position = Vector2(80.8511, -28.7234)
@@ -2184,7 +2185,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike6"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike6"]
 position = Vector2(80.8511, -28.7234)
@@ -2200,7 +2201,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike7"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike7"]
 position = Vector2(80.8511, -28.7234)
@@ -2216,7 +2217,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike8"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike8"]
 position = Vector2(80.8511, -28.7234)
@@ -2232,7 +2233,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike9"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike9"]
 position = Vector2(80.8511, -28.7234)
@@ -2248,7 +2249,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike10"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike10"]
 position = Vector2(80.8511, -28.7234)
@@ -2264,7 +2265,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike11"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike11"]
 position = Vector2(80.8511, -28.7234)
@@ -2280,7 +2281,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group8/Spike12"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group8/Spike12"]
 position = Vector2(80.8511, -28.7234)
@@ -2298,7 +2299,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike5"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike5"]
 position = Vector2(80.8511, -28.7234)
@@ -2314,7 +2315,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike6"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike6"]
 position = Vector2(80.8511, -28.7234)
@@ -2330,7 +2331,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike7"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike7"]
 position = Vector2(80.8511, -28.7234)
@@ -2346,7 +2347,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike8"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike8"]
 position = Vector2(80.8511, -28.7234)
@@ -2362,7 +2363,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike9"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike9"]
 position = Vector2(80.8511, -28.7234)
@@ -2378,7 +2379,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike10"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike10"]
 position = Vector2(80.8511, -28.7234)
@@ -2394,7 +2395,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike11"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike11"]
 position = Vector2(80.8511, -28.7234)
@@ -2410,7 +2411,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group9/Spike12"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group9/Spike12"]
 position = Vector2(80.8511, -28.7234)
@@ -2428,7 +2429,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group10/Spike8"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group10/Spike8"]
 position = Vector2(80.8511, -28.7234)
@@ -2444,7 +2445,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="levelObjects/Spikes/Group10/Spike9"]
 position = Vector2(1.52588e-05, 3.8147e-06)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_6lueb")
+texture = ExtResource("15_ot7w3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelObjects/Spikes/Group10/Spike9"]
 position = Vector2(80.8511, -28.7234)
