@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://w3ief0hxv1xx"]
+
+[ext_resource type="AudioStream" uid="uid://t4uw868hhagl" path="res://sounds/BeepBox-Song.wav" id="1_2wsa6"]
+[ext_resource type="Script" path="res://music.gd" id="2_kyryg"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_2wsa6")
+volume_db = -7.5
+autoplay = true
+script = ExtResource("2_kyryg")
